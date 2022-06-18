@@ -29,18 +29,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 100
 
+// Underglow
 #undef RGBLED_NUM
-#define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 27
-#define RGBLIGHT_LIMIT_VAL 120
+#define RGBLED_NUM 6   // Number of LEDs
+#define RGBLIGHT_SPLIT
+#define RGBLED_SPLIT { 3, 3 } // How many per side
+
+#define RGBLIGHT_ANIMATIONS // Enable access to animations
+
+#define RGBLIGHT_SLEEP // Turn off LEDs when sleeping
+
+#define RGBLIGHT_LIMIT_VAL 200 // 120
 #define RGBLIGHT_HUE_STEP 10
 #define RGBLIGHT_SAT_STEP 17
 #define RGBLIGHT_VAL_STEP 17
 
-// Underglow
-/*
-#undef RGBLED_NUM
-#define RGBLED_NUM 14    // Number of LEDs
-#define RGBLIGHT_ANIMATIONS
-#define RGBLIGHT_SLEEP
-*/
+#define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_STATIC_LIGHT
+#define RGBLIGHT_DEFAULT_HUE 201 // red
+#define RGBLIGHT_DEFAULT_SAT 255
+#define RGBLIGHT_DEFAULT_VAL RGBLIGHT_LIMIT_VAL
+#define RGBLIGHT_DEFAULT_SPD 0
