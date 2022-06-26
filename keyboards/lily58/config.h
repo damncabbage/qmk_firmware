@@ -20,8 +20,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "config_common.h"
 
-#ifndef USE_I2C
-#define USE_I2C
+#ifndef SOFT_SERIAL_PIN
+#define SOFT_SERIAL_PIN D2
+#define SERIAL_USE_MULTI_TRANSACTION
 #endif
 
 #if !defined(NO_ACTION_MACRO)
