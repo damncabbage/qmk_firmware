@@ -298,6 +298,11 @@ void oled_task_user(void) {
     // oled_write_ln(read_host_led_state(), false);
     // oled_write_ln(read_timelog(), false);
   }
+  if (current_frame == 0) {
+    rgblight_sethsv(HSV_RED);
+  } else {
+    rgblight_sethsv(HSV_PURPLE);
+  }
 }
 #endif  // OLED_DRIVER_ENABLE
 
