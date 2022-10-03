@@ -31,9 +31,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Underglow
 #undef RGBLED_NUM
-#define RGBLED_NUM 6   // Number of LEDs
-#define RGBLIGHT_SPLIT
-#define RGBLED_SPLIT { 3, 3 } // How many per side
+#define RGBLED_NUM 5   // Number of LEDs
+
+// NOTE: we are mirroring RGBs, not having independent two sets of them.
+//#define RGBLIGHT_SPLIT
+//#define RGBLED_SPLIT { 3, 3 } // How many per side
 
 #define RGBLIGHT_ANIMATIONS // Enable access to animations
 
