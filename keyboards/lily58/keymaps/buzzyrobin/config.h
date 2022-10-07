@@ -47,7 +47,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_VAL_STEP 17
 
 #define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_STATIC_LIGHT
-#define RGBLIGHT_DEFAULT_HUE 201 // red
+#define RGBLIGHT_DEFAULT_HUE 201 // magenta according to https://docs.qmk.fm/#/feature_rgblight?id=colors
 #define RGBLIGHT_DEFAULT_SAT 255
 #define RGBLIGHT_DEFAULT_VAL RGBLIGHT_LIMIT_VAL
 #define RGBLIGHT_DEFAULT_SPD 0
+

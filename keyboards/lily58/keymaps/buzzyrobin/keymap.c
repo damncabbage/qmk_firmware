@@ -9,7 +9,6 @@ enum layer_number {
   _LEFT,
   _RIGHT,
   _BOTH,
-  _SETTINGS,
 };
 
 /* clang-format off */
@@ -41,10 +40,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
 [_QWERTY] = LAYOUT( \
   XXXX,    XXXX,  XXXX,  XXXX,  XXXX,  XXXX,             XXXX,  XXXX,  XXXX,    XXXX,   XXXX,    XXXX, \
-  KC_TAB,  KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,             KC_Y,  KC_U,  KC_I,    KC_O,   KC_P,    KC_PLUS, \
+  KC_TAB,  KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,             KC_Y,  KC_U,  KC_I,    KC_O,   KC_P,    KC_BSPC, \
   KC_ESC,  KC_A,  KC_S,  KC_D,  KC_F,  KC_G,             KC_H,  KC_J,  KC_K,    KC_L,   KC_SCLN, KC_QUOT, \
-  KC_LSFT, KC_Z,  KC_X,  KC_C,  KC_V,  KC_B, XXXX, XXXX, KC_N,  KC_M,  KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, \
-                 XXXX, KC_LGUI, MO(_LEFT), KC_ENT, KC_SPC, MO(_RIGHT), KC_BSPC, XXXX \
+  KC_LSFT, KC_Z,  KC_X,  KC_C,  KC_V,  KC_B, XXXX, XXXX, KC_N,  KC_M,  KC_COMM, KC_DOT, KC_SLSH, KC_LALT, \
+                 XXXX, KC_LCTRL, MO(_LEFT), KC_ENT, KC_SPC, MO(_RIGHT), KC_LGUI, XXXX \
 ),
 /* LEFT
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -61,11 +60,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                   `----------------------------'           '------''--------------------'
  */
 [_LEFT] = LAYOUT( \
-  XXXX,     XXXX,    XXXX,  XXXX,    XXXX,   XXXX,             XXXX,  XXXX,  XXXX,  XXXX,  XXXX,   XXXX, \
-  KC_GRV,   KC_1,    KC_2,  KC_3,    KC_4,   KC_5,             KC_6,  KC_7,  KC_8,  KC_9,  KC_0,   KC_MINS, \
-  KC_TILDE, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,          KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQL, \
-  _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, \
-                             _______, _______, _______, _______, _______,  _______, _______, _______\
+  XXXX,     XXXX,    XXXX,  XXXX,    XXXX,   XXXX,                XXXX,    XXXX,  XXXX,  XXXX,  XXXX,   XXXX, \
+  KC_GRV,   KC_1,    KC_2,  KC_3,    KC_4,   KC_5,                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, \
+  KC_TILDE, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,             KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS, \
+  XXXX,     XXXX,    XXXX,  XXXX,    XXXX,   XXXX,    XXXX, XXXX, XXXXXXX, KC_EQL, KC_PLUS,  KC_LCBR, KC_RCBR, KC_PIPE, \
+                                    XXXX, ____, ____, ____, ____,  ____, ____, XXXX\
 ),
 /* RIGHT
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -83,11 +82,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_RIGHT] = LAYOUT( \
-  XXXX,     XXXX,    XXXX,  XXXX,    XXXX,   XXXX,             XXXX,  XXXX,  XXXX,  XXXX,  XXXX,   XXXX, \
-  XXXX,     KC_F1,   KC_F2, KC_F3,   KC_F4,  KC_F5,            KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, \
-  KC_F1,  KC_F2,    KC_F3,   KC_F4,   KC_F5,   KC_F6,                       KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,   XXXXXXX, KC_PLUS, \
-  KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,   _______, _______,  KC_PLUS, KC_MINS, KC_EQL,  KC_LBRC, KC_BSLS, XXXXXXX, \
-                             _______, _______, _______,  _______, _______,  _______, _______, _______ \
+  XXXX,   XXXX,    XXXX,  XXXX,    XXXX,   XXXX,               XXXX,    XXXX,    XXXX,   XXXX,    XXXX,    XXXX, \
+  XXXX,   KC_F1,   KC_F2, KC_F3,   KC_F4,  KC_F5,              KC_F6,   KC_F7,   KC_F8,  KC_F9,   KC_F10,  KC_F11, \
+  XXXX,   KC_F2,   KC_F3, KC_F4,   KC_F5,  KC_F6,              KC_LEFT, KC_DOWN, KC_UP,  KC_RGHT, XXXX,    KC_PLUS, \
+  KC_F7,  KC_F8,   KC_F9, KC_F10,  KC_F11, KC_F12, XXXX, XXXX, KC_PLUS, KC_MINS, KC_EQL, KC_LBRC, KC_BSLS, XXXX, \
+                                 XXXX, ____, ____, ____, ____,  ____, ____, XXXX\
 ),
 
 [_BOTH] = LAYOUT( \
@@ -101,7 +100,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* clang-format on */
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _LEFT, _RIGHT, _BOTH);
+  layer_state_t new_state = update_tri_layer_state(state, _LEFT, _RIGHT, _BOTH);
+  switch (get_highest_layer(new_state)) {
+    case _RIGHT:
+        rgblight_sethsv(HSV_CYAN);
+        break;
+    case _LEFT:
+        rgblight_sethsv(HSV_GOLD);
+        break;
+    case _BOTH:
+        rgblight_sethsv(HSV_TURQUOISE);
+        break;
+    default: // for any other layers, or the default layer
+        rgblight_sethsv(HSV_MAGENTA);
+        break;
+  }
+  return new_state;
 }
 
 // SSD1306 OLED update loop, make sure to enable OLED_DRIVER_ENABLE=yes in
@@ -191,81 +205,8 @@ static void render_bongo_cat(void) {
        0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
        0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
        0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0}/*,
-      // Both down
-      {0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   128, 64,
-       64,  32, 32, 32,  32,  16,  16,  16,  16, 8,   8,   4,   2,   2,   2,
-       4,   56, 64, 128, 0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   128, 128, 128, 0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   28,  226, 1,
-       1,   2,  2,  2,   2,   1,   0,   0,   0,  0,   128, 128, 0,   0,   0,
-       0,   0,  0,  0,   0,   0,   128, 0,   48, 48,  0,   192, 193, 193, 194,
-       4,   8,  16, 32,  64,  128, 0,   0,   0,  128, 128, 128, 128, 64,  64,
-       64,  64, 32, 32,  32,  32,  16,  16,  16, 16,  8,   8,   8,   8,   8,
-       4,   4,  4,  4,   4,   2,   2,   2,   2,  1,   1,   1,   1,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   128, 112, 12,  3,   0,  0,   0,   0,   0,   0,   0,
-       12,  12, 12, 13,  1,   0,   64,  160, 33, 34,  18,  17,  17,  17,  9,
-       8,   8,  8,  8,   4,   4,   8,   8,   16, 16,  16,  16,  16,  17,  15,
-       1,   1,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   128, 128, 128, 128,
-       128, 64, 64, 64,  64,  64,  32,  32,  32, 32,  32,  16,  16,  16,  16,
-       16,  8,  8,  8,   8,   8,   4,   4,   4,  4,   4,   2,   3,   2,   2,
-       1,   1,  1,  1,   1,   1,   2,   2,   4,  4,   8,   8,   8,   8,   8,
-       7,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,  0,  0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
        0,   0},
-      // Both up
-      {0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   128, 128, 0,  0,   0,   0,   0,   128, 64,
-       64,  32,  32,  32,  32,  16,  16,  16,  16, 8,   4,   2,   1,   1,   2,
-       12,  48,  64,  128, 0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   128, 128, 128, 0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   30,  225, 0,
-       0,   1,   1,   2,   2,   129, 128, 128, 0,  0,   128, 128, 0,   0,   0,
-       0,   0,   0,   0,   0,   0,   128, 0,   48, 48,  0,   0,   1,   225, 26,
-       6,   9,   49,  53,  1,   138, 124, 0,   0,  128, 128, 128, 128, 64,  64,
-       64,  64,  32,  32,  32,  32,  16,  16,  16, 16,  8,   8,   8,   8,   8,
-       4,   4,   4,   4,   4,   2,   2,   2,   2,  1,   1,   1,   1,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   128, 112, 12,  3,   0,  0,   24,  6,   5,   152, 153,
-       132, 195, 124, 65,  65,  64,  64,  32,  33, 34,  18,  17,  17,  17,  9,
-       8,   8,   8,   8,   4,   4,   4,   4,   4,  4,   2,   2,   2,   1,   1,
-       1,   1,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   128, 128, 128, 128,
-       128, 64,  64,  64,  64,  64,  32,  32,  32, 32,  32,  16,  16,  16,  16,
-       16,  8,   8,   8,   8,   8,   4,   4,   4,  4,   4,   2,   3,   2,   2,
-       1,   1,   1,   1,   1,   1,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
-       0,   0}*/
   };
-
   oled_write_raw_P(animation[current_frame], ANIM_FRAME_DIMENSIONS);
 }
 
@@ -284,31 +225,9 @@ const char *read_keylogs(void);
 
 // const char *read_mode_icon(bool swap);
 // const char *read_host_led_state(void);
-// void set_timelog(void);
-// const char *read_timelog(void);
 
 void oled_task_user(void) {
   render_bongo_cat();
-  return;
-  
-  /*
-  if (is_keyboard_master()) {
-    render_bongo_cat();
-  } else {
-    // If you want to change the display of OLED, you need to change here
-    oled_write_ln(read_layer_state(), false);
-    oled_write_ln(read_keylog(), false);
-    oled_write_ln(read_keylogs(), false);
-    // oled_write_ln(read_mode_icon(keymap_config.swap_lalt_lgui), false);
-    // oled_write_ln(read_host_led_state(), false);
-    // oled_write_ln(read_timelog(), false);
-  }
-  if (current_frame == 0) {
-    rgblight_sethsv(HSV_RED);
-  } else {
-    rgblight_sethsv(HSV_PURPLE);
-  }
-  */
 }
 #endif  // OLED_DRIVER_ENABLE
 
@@ -316,9 +235,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
 #ifdef OLED_DRIVER_ENABLE
     advance_animation();
-    set_keylog(keycode, record);
 #endif
-    // set_timelog();
+#ifdef RGBLIGHT_ENABLE
+  //  oled_write_ln(read_layer_state(), false);
+  //  oled_write_ln(read_keylog(), false);
+  //  oled_write_ln(read_keylogs(), false);
+#endif
   }
   return true;
 }
+
+//#ifdef RGBLIGHT_ENABLE
+//void keyboard_post_init_user(void) {
+//  rgblight_sethsv(RGBLIGHT_DEFAULT_HUE);
+//}
+//#endif // RGBLIGHT_ENABLE
