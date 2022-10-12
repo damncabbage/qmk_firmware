@@ -52,3 +52,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_DEFAULT_VAL RGBLIGHT_LIMIT_VAL
 #define RGBLIGHT_DEFAULT_SPD 0
 
+// TODO: do we want this?
+//#define RGBLIGHT_LAYERS

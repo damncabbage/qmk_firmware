@@ -39,74 +39,45 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 */
 [_QWERTY] = LAYOUT( \
+  /* TODO: consider TAB, LSFT, LCTRL on the left col, and putting ESC on LEFT+RIGHT */
   XXXX,    XXXX,  XXXX,  XXXX,  XXXX,  XXXX,             XXXX,  XXXX,  XXXX,    XXXX,   XXXX,    XXXX, \
   KC_TAB,  KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,             KC_Y,  KC_U,  KC_I,    KC_O,   KC_P,    KC_BSPC, \
   KC_ESC,  KC_A,  KC_S,  KC_D,  KC_F,  KC_G,             KC_H,  KC_J,  KC_K,    KC_L,   KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,  KC_X,  KC_C,  KC_V,  KC_B, XXXX, XXXX, KC_N,  KC_M,  KC_COMM, KC_DOT, KC_SLSH, KC_LALT, \
                  XXXX, KC_LCTRL, MO(_LEFT), KC_ENT, KC_SPC, MO(_RIGHT), KC_LGUI, XXXX \
 ),
-/* LEFT
- * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |                    |  F7  |  F8  |  F9  | F10  | F11  | F12  |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |   !  |   @  |   #  |   $  |   %  |-------.    ,-------|   ^  |   &  |   *  |   (  |   )  |   -  |
- * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|      |   _  |   +  |   {  |   }  |   |  |
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | LGUI |LEFT  | /Space  /       \Enter \  |RIGHT  |BackSP| RGUI |
- *                   |      |      |      |/       /         \      \ |      |      |      |
- *                   `----------------------------'           '------''--------------------'
- */
 [_LEFT] = LAYOUT( \
-  XXXX,     XXXX,    XXXX,  XXXX,    XXXX,   XXXX,                XXXX,    XXXX,  XXXX,  XXXX,  XXXX,   XXXX, \
+  XXXX,     XXXX,    XXXX,  XXXX,    XXXX,   XXXX,                XXXX,    XXXX,    XXXX,    XXXX,    XXXX,    XXXX, \
   KC_GRV,   KC_1,    KC_2,  KC_3,    KC_4,   KC_5,                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, \
-  KC_TILDE, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,             KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS, \
-  XXXX,     XXXX,    XXXX,  XXXX,    XXXX,   XXXX,    XXXX, XXXX, XXXXXXX, KC_EQL, KC_PLUS,  KC_LCBR, KC_RCBR, KC_PIPE, \
-                                    XXXX, ____, ____, ____, ____,  ____, ____, XXXX\
+  XXXX,     XXXX,    XXXX,  XXXX,    XXXX,   XXXX,    XXXX, XXXX, XXXX,    XXXX,    XXXX,    KC_LBRC, KC_RBRC, KC_EQL, \
+  XXXX,     XXXX,    XXXX,  XXXX,    XXXX,   XXXX,    XXXX, XXXX, XXXX,    XXXX,    XXXX,    XXXX,    XXXX,    KC_BSLS, \
+                                    XXXX, ____, ____, ____, ____,  ____, ____, XXXX \
 ),
-/* RIGHT
- * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |-------.    ,-------| Left | Down | Up   |Right |      |      |
- * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
- * |  F7  |  F8  |  F9  | F10  | F11  | F12  |-------|    |-------|   +  |   -  |   =  |   [  |   \  |      |
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | LGUI |LEFT  | /Space  /       \Enter \  |RIGHT  |BackSP| RGUI |
- *                   |      |      |      |/       /         \      \ |      |      |      |
- *                   `----------------------------'           '------''--------------------'
- */
-
 [_RIGHT] = LAYOUT( \
-  XXXX,   XXXX,    XXXX,  XXXX,    XXXX,   XXXX,               XXXX,    XXXX,    XXXX,   XXXX,    XXXX,    XXXX, \
-  XXXX,   KC_F1,   KC_F2, KC_F3,   KC_F4,  KC_F5,              KC_F6,   KC_F7,   KC_F8,  KC_F9,   KC_F10,  KC_F11, \
-  XXXX,   KC_F2,   KC_F3, KC_F4,   KC_F5,  KC_F6,              KC_LEFT, KC_DOWN, KC_UP,  KC_RGHT, XXXX,    KC_PLUS, \
-  KC_F7,  KC_F8,   KC_F9, KC_F10,  KC_F11, KC_F12, XXXX, XXXX, KC_PLUS, KC_MINS, KC_EQL, KC_LBRC, KC_BSLS, XXXX, \
-                                 XXXX, ____, ____, ____, ____,  ____, ____, XXXX\
+  XXXX,   XXXX,    XXXX,  XXXX,    XXXX,   XXXX,              XXXX,    XXXX,    XXXX,   XXXX,    XXXX,    XXXX, \
+  XXXX,   KC_F1,   KC_F2, KC_F3,   KC_F4,  KC_F5,             KC_F6,   KC_F7,   KC_F8,  KC_F9,   KC_F10,  KC_F11, \
+  XXXX,   XXXX,    XXXX,  XXXX,    XXXX,   XXXX,              KC_LEFT, KC_DOWN, KC_UP,  KC_RGHT, XXXX,    XXXX, \
+  XXXX,   XXXX,    XXXX,  XXXX,    XXXX,   XXXX,  XXXX, XXXX, XXXX,    XXXX,    XXXX,   XXXX,    XXXX,    XXXX, \
+                                XXXX, ____, ____, ____, ____, ____, ____, XXXX \
 ),
-
 [_BOTH] = LAYOUT( \
-  XXXX,    XXXX,  XXXX,  XXXX,  XXXX,  XXXX,             XXXX,  XXXX,  XXXX,    XXXX,   XXXX,    XXXX, \
-  XXXX,    XXXX,  XXXX,  XXXX,  XXXX,  XXXX,             XXXX,  XXXX,  XXXX,    XXXX,   XXXX,    XXXX, \
-  XXXX,    XXXX,  XXXX,  XXXX,  XXXX,  XXXX,             XXXX,  XXXX,  XXXX,    XXXX,   XXXX,    XXXX, \
-  XXXX,    XXXX,  XXXX,  XXXX,  XXXX,  XXXX, XXXX, XXXX, XXXX,  XXXX,  XXXX,    XXXX,   XXXX,    XXXX, \
-                            XXX, ____, ____, ____, ____, ____, ____, XXX \
-),
+  XXXX,    XXXX,    XXXX,    XXXX,    XXXX,  XXXX,             XXXX,  XXXX,  XXXX,    XXXX,   XXXX,    XXXX, \
+  RGB_TOG, RBG_HUI, RGB_SAI, RGB_VAI, XXXX,  XXXX,             XXXX,  XXXX,  XXXX,    XXXX,   XXXX,    XXXX, \
+  XXXX,    RGB_HUD, RGB_SAD, RGB_VAD, XXXX,  XXXX,             XXXX,  XXXX,  XXXX,    XXXX,   XXXX,    XXXX, \
+  XXXX,    XXXX,    XXXX,    XXXX,    XXXX,  XXXX, XXXX, XXXX, XXXX,  XXXX,  XXXX,    XXXX,   XXXX,    XXXX, \
+                                 XXXX, ____, ____, ____, ____, ____, ____, XXXX \
+)
 };
 /* clang-format on */
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   layer_state_t new_state = update_tri_layer_state(state, _LEFT, _RIGHT, _BOTH);
   switch (get_highest_layer(new_state)) {
-    case _RIGHT:
-        rgblight_sethsv(HSV_CYAN);
-        break;
     case _LEFT:
         rgblight_sethsv(HSV_GOLD);
+        break;
+    case _RIGHT:
+        rgblight_sethsv(HSV_CYAN);
         break;
     case _BOTH:
         rgblight_sethsv(HSV_TURQUOISE);
@@ -118,8 +89,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   return new_state;
 }
 
-// SSD1306 OLED update loop, make sure to enable OLED_DRIVER_ENABLE=yes in
-// rules.mk
+// SSD1306 OLED update loop, make sure to enable OLED_DRIVER_ENABLE=yes in rules.mk
 #ifdef OLED_DRIVER_ENABLE
 
 #define ANIM_FRAMES (2)
@@ -135,7 +105,6 @@ static void advance_animation(void) {
 static void render_bongo_cat(void) {
   // All the bongocat animations !!!
   static const char PROGMEM animation[ANIM_FRAMES][ANIM_FRAME_DIMENSIONS] = {
-      // These first two are the 'typing' animations. Possibly all we need?
       {0,   0,  0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
        0,   0,  0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
        0,   0,  0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,   0,
@@ -236,11 +205,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef OLED_DRIVER_ENABLE
     advance_animation();
 #endif
-#ifdef RGBLIGHT_ENABLE
+  //#ifdef RGBLIGHT_ENABLE
   //  oled_write_ln(read_layer_state(), false);
   //  oled_write_ln(read_keylog(), false);
   //  oled_write_ln(read_keylogs(), false);
-#endif
+  //#endif
   }
   return true;
 }
